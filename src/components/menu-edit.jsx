@@ -1,26 +1,35 @@
 import PropTypes from "prop-types";
-
-import { Box, useMultiStyleConfig } from "@chakra-ui/react";
+import {
+  Box,
+  VisuallyHidden,
+  Text,
+  useMultiStyleConfig,
+} from "@chakra-ui/react";
+// Components
 import Form from "./form";
-
 import MenuEditInfo from "./menu-edit-info";
 import MenuEditTemplate from "./menu-edit-template";
 import MenuEditDishes from "./menu-edit-dishes";
 import MenuEditCtas from "./menu-edit-ctas";
 
-const MenuEdit = ({ formData, onChange }) => {
+const MenuEdit = ({ data, onChange, addDish, removeDish }) => {
   const styles = useMultiStyleConfig("MenuEditPreview");
+
   return (
     <Box as="section" aria-labelledby="menu-edit-title" {...styles.container}>
+      <VisuallyHidden as="h2" id="menu-edit-title">
+        Menu form
+      </VisuallyHidden>
       <Form>
-        {/* menu info */}
-        <MenuEditInfo formData={formData} onChange={onChange} />
-        {/* menu template */}
-        <MenuEditTemplate formData={formData} onChange={onChange} />
-        {/* dishes */}
-        <MenuEditDishes formData={formData} onChange={onChange} />
-        {/* print / download menu */}
-        <MenuEditCtas formData={formData} />
+        <MenuEditInfo formData={data} onChange={onChange} />
+        <MenuEditTemplate formData={data} onChange={onChange} />
+        <MenuEditDishes
+          formData={data}
+          onChange={onChange}
+          addDish={addDish}
+          removeDish={removeDish}
+        />
+        <MenuEditCtas formData={data} />
       </Form>
     </Box>
   );
@@ -29,16 +38,10 @@ const MenuEdit = ({ formData, onChange }) => {
 export default MenuEdit;
 
 MenuEdit.propTypes = {
-  formData: PropTypes.shape({
-    menuTitle: PropTypes.string,
-    menuDate: PropTypes.string,
-    menuTemplate: PropTypes.string,
-    dishTitle: PropTypes.string,
-    dishDescription: PropTypes.string,
-    dietaryLabels: PropTypes.array,
-    allergens: PropTypes.array,
-  }),
+  data: PropTypes.arrayOf(PropTypes.object),
   onChange: PropTypes.func,
+  addDish: PropTypes.func,
+  removeDish: PropTypes.func,
 };
 
 MenuEdit.displayName = "MenuEdit";

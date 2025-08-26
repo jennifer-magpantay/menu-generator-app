@@ -17,7 +17,8 @@ const MenuEditTemplate = ({ formData, onChange }) => {
           { value: "elegant", label: "Elegant" },
           { value: "vintage", label: "Vintage" },
         ]}
-        onChange={onChange}
+        variant="templateOptions"
+        onChange={(name, value) => onChange("menuTemplate", name, value)}
       />
     </Fieldset>
   );
