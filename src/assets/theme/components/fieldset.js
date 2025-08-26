@@ -9,8 +9,8 @@ const fieldset = {
       border: "1px solid",
       borderColor: "black.500",
       borderRadius: "lg",
-      padding: "xs",
-      mb: "xs",
+      padding: "m",
+      mb: "m",
     },
     fieldContainer: {
       display: "flex",

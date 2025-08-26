@@ -11,6 +11,7 @@ const baseStyle = definePartsStyle({
     justifyContent: "center",
     gap: "xxs",
     px: "xs",
+    py: "xxxs",
     border: "1px solid",
     borderColor: "transparent",
     borderRadius: "3xl",
@@ -18,21 +19,22 @@ const baseStyle = definePartsStyle({
   },
   label: {
     textStyle: "text",
+    fontWeight: "bold",
   },
   closeButton: {},
 });
 
 const label = definePartsStyle({
   container: {
-    borderColor: "red",
-    bg: "pink",
+    borderColor: "green",
+    bg: "green",
   },
-  label: { color: "red" },
+  label: { color: "white" },
 });
 
 const allergen = definePartsStyle({
   container: {
-    borderColor: "pink",
+    borderColor: "red",
     bg: "red",
   },
   label: { color: "white" },

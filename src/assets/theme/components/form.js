@@ -8,12 +8,10 @@ const form = {
       h: "fit-content",
       display: "flex",
       flexDirection: "column",
-      // gap: "m",
     },
     label: {
-      fontSize: "sm",
-      fontWeight: "bold",
       mb: "xxxs",
+      textStyle: "caption",
     },
     input: {
       w: "100%",
@@ -23,11 +21,12 @@ const form = {
       borderColor: "black.200",
       borderRadius: "base",
       py: "xxs",
-      px: "xxxs",
+      px: "xxs",
       _focus: {
         borderColor: "blue.500",
         boxShadow: "0 0 0 1px blue.500",
       },
+      textStyle: "text",
       ...mixins.focusVisible,
     },
     button: {

@@ -43,8 +43,10 @@ const menuEditPreview = {
       textStyle: "text",
     },
     menuCaption: {
+      mt: "xs",
+      mb: "xxxs",
       color: "black.600",
-      textStyle: "text",
+      textStyle: "caption",
     },
     dishTitle: {
       color: "black.900",

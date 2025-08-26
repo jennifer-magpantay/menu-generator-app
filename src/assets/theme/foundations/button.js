@@ -42,8 +42,8 @@ const button = {
       },
       addDishCta: {
         position: "absolute",
-        top: "xs",
-        right: "xs",
+        top: "s",
+        right: "m",
         bg: "black.900",
         color: "white",
         _hover: {

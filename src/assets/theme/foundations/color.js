@@ -16,6 +16,8 @@ export default {
     background: {
       light: "#fafafa",
       dark: "#050505",
+      green: "#38A169",
+      red: "#E53E3E",
     },
   },
 };
