@@ -9,9 +9,6 @@ import {
 // Assets
 import logo from "../assets/logo.svg";
 
-/** * Footer component for the application.
- * @returns {JSX.Element} The rendered footer component.
- */
 const Footer = () => {
   const styles = useMultiStyleConfig("Footer");
 
