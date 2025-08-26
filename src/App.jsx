@@ -1,35 +1,30 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Box, Text, useMultiStyleConfig } from "@chakra-ui/react";
+
+// Components
+import Header from "./components/header.jsx";
+import MenuEditPreview from "./components/menu-edit-preview.jsx";
+import Footer from "./components/footer.jsx";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const styles = useMultiStyleConfig("App");
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Header />
+      <Box as="main" {...styles.container}>
+        <Text as="h1" {...styles.title}>
+          Menu Generator App
+        </Text>
+        <Text as="h2" {...styles.subTitle}>
+          Create your own menu with ease
+        </Text>
+        <MenuEditPreview />
+      </Box>
+      <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
+
+App.displayName = "App";
