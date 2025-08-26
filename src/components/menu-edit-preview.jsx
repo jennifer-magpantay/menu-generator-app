@@ -1,52 +1,54 @@
 import { useReducer } from "react";
 import { useBreakpointValue } from "@chakra-ui/react";
+// Components
 import MenuEdit from "./menu-edit";
 import MenuPreview from "./menu-preview";
 import MenuEditPreviewDesktop from "./menu-edit-preview-desktop";
 import MenuEditPreviewMobile from "./menu-edit-preview-mobile";
-
-const INITIAL_FORM_DATA = {
-  menuTitle: "Menu title",
-  menuDate: new Date().toISOString().split("T")[0], // Default to today's date
-  menuTemplate: "classic",
-  dishTitle: "Dish title",
-  dishDescription: "Dish description",
-  labelOptions: [],
-  allergenOptions: [],
-};
-
-const formReducer = (state, action) => {
-  switch (action.type) {
-    case "UPDATE_FIELD":
-      return { ...state, [action.name]: action.value };
-    case "RESET_FORM":
-      return INITIAL_FORM_DATA;
-    case "ADD_DISH":
-      return {
-        ...state,
-        dishes: [...(state.dishes || []), { title: "", description: "" }],
-      };
-    case "REMOVE_DISH":
-      return {
-        ...state,
-        dishes: (state.dishes || []).filter(
-          (_, index) => index !== action.index
-        ),
-      };
-    default:
-      return state;
-  }
-};
+// Reducer
+import {
+  ACTION_TYPES,
+  formReducer,
+  INITIAL_DISH_DATA,
+} from "../utils/formReducer";
 
 const MenuEditPreview = () => {
-  const [formData, dispatch] = useReducer(formReducer, INITIAL_FORM_DATA);
   const isDesktop = useBreakpointValue({ base: false, lg: true });
+  const [formData, dispatch] = useReducer(formReducer, INITIAL_DISH_DATA);
 
-  const handleChange = (name, value) => {
-    dispatch({ type: "UPDATE_FIELD", name, value });
+  const handleChange = (id, name, value) => {
+    switch (id) {
+      case "menuTitle":
+      case "menuDate":
+      case "menuTemplate":
+        dispatch({ type: ACTION_TYPES.UPDATE_INFO, payload: { name, value } });
+        break;
+      default:
+        dispatch({
+          type: ACTION_TYPES.UPDATE_DISH,
+          payload: { id, name, value },
+        });
+        break;
+    }
   };
 
-  const menuEdit = <MenuEdit formData={formData} onChange={handleChange} />;
+  const handleAddDish = () => {
+    console.log("add dish");
+    dispatch({ type: ACTION_TYPES.ADD_DISH });
+  };
+
+  const handleRemoveDish = (id) => {
+    dispatch({ type: ACTION_TYPES.REMOVE_DISH, payload: { id } });
+  };
+
+  const menuEdit = (
+    <MenuEdit
+      data={formData}
+      onChange={handleChange}
+      addDish={handleAddDish}
+      removeDish={handleRemoveDish}
+    />
+  );
   const menuPreview = <MenuPreview data={formData} />;
 
   return isDesktop ? (
