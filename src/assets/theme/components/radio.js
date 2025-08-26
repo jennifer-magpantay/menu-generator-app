@@ -15,5 +15,16 @@ const baseStyle = definePartsStyle({
   },
 });
 
-export const radio = defineMultiStyleConfig({ baseStyle });
+const templateOptions = definePartsStyle({
+  container: {
+    ...mixins.optionTemplate,
+    ...mixins.focusVisible,
+    span: { marginLeft: "0" },
+  },
+});
+
+export const radio = defineMultiStyleConfig({
+  baseStyle,
+  variants: { templateOptions },
+});
 export default radio;

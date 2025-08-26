@@ -3,7 +3,7 @@ import { RadioGroup, Radio, FormHelperText } from "@chakra-ui/react";
 import FormFieldControl from "./form-field-control";
 import OptionsGroup from "./options-group";
 
-const FormRadioGroup = ({ label, name, options, value, onChange }) => {
+const FormRadioGroup = ({ label, name, options, value, variant, onChange }) => {
   const helperTemplateText = () => {
     let helperText = "";
     switch (value) {
@@ -39,14 +39,14 @@ const FormRadioGroup = ({ label, name, options, value, onChange }) => {
         >
           <OptionsGroup>
             {options.map((option) => (
-              <Radio key={option.value} value={option.value}>
+              <Radio key={option.value} value={option.value} variant={variant}>
                 {option.label}
               </Radio>
             ))}
           </OptionsGroup>
         </RadioGroup>
       )}
-      <FormHelperText textStyle="caption" mt="xs">
+      <FormHelperText textStyle="caption" mt="xxs">
         {helperTemplateText()}
       </FormHelperText>
     </FormFieldControl>
@@ -65,6 +65,7 @@ FormRadioGroup.propTypes = {
     })
   ),
   value: PropTypes.string,
+  variant: PropTypes.string,
   onChange: PropTypes.func,
 };
 FormRadioGroup.displayName = "FormRadioGroup";

@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 
 import { Stack, useMultiStyleConfig } from "@chakra-ui/react";
 
-const OptionsGroup = ({ children }) => {
-  const styles = useMultiStyleConfig("OptionsGroup", {});
+const OptionsGroup = ({ children, variant }) => {
+  const styles = useMultiStyleConfig("OptionsGroup", { variant });
   return <Stack {...styles.container}>{children}</Stack>;
 };
 
