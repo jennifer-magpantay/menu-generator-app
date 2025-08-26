@@ -35,7 +35,7 @@ const MenuEditCtas = ({ formData }) => {
   });
 
   return (
-    <Fieldset legend="Actions">
+    <Fieldset legend="Print or Save">
       <FormButtonGroup
         options={[
           { value: "print", label: "Print Menu" },
