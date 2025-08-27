@@ -44,37 +44,37 @@ const MenuEditDishes = ({ formData, onChange, addDish, removeDish }) => {
               onChange={(name, value) => onChange(id, name, value)}
             />
             <FormCheckboxGroup
-              label="Dietary Labels"
-              name="labelOptions"
-              options={[
-                { value: "Vegetarian", label: "Vegetarian" },
-                { value: "Vegan", label: "Vegan" },
-                { value: "Gluten-Free", label: "Gluten-Free" },
-                { value: "Lactose-Free", label: "Lactose-Free" },
-                { value: "Halal", label: "Halal" },
-              ]}
-              value={dietaryLabels}
-              onChange={(name, value) => onChange(id, name, value)}
-            />
-            <FormCheckboxGroup
               label="Allergens"
               name="allergenOptions"
               options={[
-                { value: "Gluten", label: "Gluten" },
-                { value: "Nuts", label: "Nuts" },
-                { value: "Dairy", label: "Dairy" },
-                { value: "Soy", label: "Soy" },
-                { value: "Shellfish", label: "Shellfish" },
-                { value: "Eggs", label: "Eggs" },
-                { value: "Fish", label: "Fish" },
-                { value: "Sesame", label: "Sesame" },
-                { value: "Sulphites", label: "Sulphites" },
-                { value: "Lupin", label: "Lupin" },
                 { value: "Celery", label: "Celery" },
-                { value: "Mustard", label: "Mustard" },
+                { value: "Crustaceans", label: "Crustaceans" },
+                { value: "Egg", label: "Egg" },
+                { value: "Fish", label: "Fish" },
+                { value: "Gluten", label: "Gluten" },
+                { value: "Lupin", label: "Lupin" },
+                { value: "Milk", label: "Milk" },
                 { value: "Molluscs", label: "Molluscs" },
+                { value: "Mustard", label: "Mustard" },
+                { value: "Peanut", label: "Peanut" },
+                { value: "Sesame", label: "Sesame" },
+                { value: "Soybean", label: "Soybean" },
+                { value: "Sulphur Dioxide", label: "Sulphur Dioxide" },
+                { value: "Treenuts", label: "Treenuts" },
               ]}
               value={allergens}
+              onChange={(name, value) => onChange(id, name, value)}
+            />
+            <FormCheckboxGroup
+              label="Dietary Labels"
+              name="labelOptions"
+              options={[
+                { value: "Gluten-Free", label: "Gluten-Free" },
+                { value: "Lactose-Free", label: "Lactose-Free" },
+                { value: "Vegan", label: "Vegan" },
+                { value: "Vegetarian", label: "Vegetarian" },
+              ]}
+              value={dietaryLabels}
               onChange={(name, value) => onChange(id, name, value)}
             />
           </Box>
