@@ -52,4 +52,12 @@ export const mixins = {
       outlineOffset: "2px",
     },
   },
+
+  flexWrapCenter: {
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    alignItems: "center",
+    justifyContent: "center",
+  },
 };

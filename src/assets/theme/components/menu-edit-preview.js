@@ -1,3 +1,4 @@
+import { mixins } from "../tools/mixins";
 import remCalc from "../tools/remCalc";
 
 const menuEditPreview = {
@@ -10,7 +11,7 @@ const menuEditPreview = {
       padding: "xs",
       mb: "xs",
     },
-    container_preview: {
+    containerPreview: {
       w: "100%",
       h: "auto",
       position: "sticky",
@@ -46,14 +47,17 @@ const menuEditPreview = {
       mt: "xs",
       mb: "xxxs",
       color: "black.600",
+      textAlign: "center",
       textStyle: "caption",
     },
     dishTitle: {
       color: "black.900",
+      textAlign: "center",
       textStyle: "title",
     },
     dishDescription: {
       color: "black.600",
+      textAlign: "center",
       textStyle: "subtitle",
     },
     dishFormContainer: {
@@ -75,6 +79,14 @@ const menuEditPreview = {
       top: "xxs",
       right: "xxxs",
       zIndex: 1,
+    },
+    containerIcons: {
+      ...mixins.flexWrapCenter,
+    },
+    containerLabels: {
+      ...mixins.flexWrapCenter,
+      justifyContent: "center",
+      gap: "xxxs",
     },
   },
   sizes: {},

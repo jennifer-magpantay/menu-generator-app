@@ -2,6 +2,8 @@ import PropTypes from "prop-types";
 import {
   Box,
   Divider,
+  List,
+  ListItem,
   Text,
   VisuallyHidden,
   useMultiStyleConfig,
@@ -9,6 +11,7 @@ import {
 // Components
 import OptionTag from "./option-tag";
 import OptionsGroup from "./options-group";
+import AllergenIcon from "./allergen-icon";
 
 const MenuPreview = ({ data }) => {
   const { menuTitle, menuDate, dishes } = data;
@@ -25,7 +28,7 @@ const MenuPreview = ({ data }) => {
       <VisuallyHidden as="h2" id="menu-preview-title">
         Menu Preview
       </VisuallyHidden>
-      <Box id="menu-preview" {...styles.container_preview}>
+      <Box id="menu-preview" {...styles.containerPreview}>
         <Text {...styles.menuTitle}>{menuTitle}</Text>
         {menuDate && <Text {...styles.menuDate}>{menuDate}</Text>}
         <Divider variant="grey" />
@@ -42,30 +45,30 @@ const MenuPreview = ({ data }) => {
               <Box key={index}>
                 <Text {...styles.dishTitle}>{dishTitle}</Text>
                 <Text {...styles.dishDescription}>{dishDescription}</Text>
-                {enabledLabelOptions && (
-                  <>
-                    {/* <Divider variant="grey" /> */}
-                    <Text {...styles.menuCaption}>Labels:</Text>
-                    <OptionsGroup>
-                      {labelOptions.map((label) => (
-                        <OptionTag key={label} variant="label" label={label} />
-                      ))}
-                    </OptionsGroup>
-                  </>
-                )}
                 {enabledAllergenOptions && (
                   <>
                     {/* <Divider variant="grey" /> */}
                     <Text {...styles.menuCaption}>It may contain:</Text>
-                    <OptionsGroup>
+                    <List {...styles.containerIcons}>
                       {allergenOptions.map((allergen) => (
-                        <OptionTag
-                          key={allergen}
-                          variant="allergen"
-                          label={allergen}
-                        />
+                        <ListItem key={allergen}>
+                          <AllergenIcon name={allergen} />
+                        </ListItem>
                       ))}
-                    </OptionsGroup>
+                    </List>
+                  </>
+                )}
+                {enabledLabelOptions && (
+                  <>
+                    {/* <Divider variant="grey" /> */}
+                    <Text {...styles.menuCaption}>Labels:</Text>
+                    <List {...styles.containerLabels}>
+                      {labelOptions.map((label) => (
+                        <ListItem key={label}>
+                          <OptionTag variant="label" label={label} />
+                        </ListItem>
+                      ))}
+                    </List>
                   </>
                 )}
                 {dishes.length - 1 !== index && (
