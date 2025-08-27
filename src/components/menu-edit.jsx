@@ -1,10 +1,5 @@
 import PropTypes from "prop-types";
-import {
-  Box,
-  VisuallyHidden,
-  Text,
-  useMultiStyleConfig,
-} from "@chakra-ui/react";
+import { Box, VisuallyHidden, useMultiStyleConfig } from "@chakra-ui/react";
 // Components
 import Form from "./form";
 import MenuEditInfo from "./menu-edit-info";
